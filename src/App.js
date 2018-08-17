@@ -11,6 +11,26 @@ class App extends Component {
     }
   }
 
+  checkWinner() {
+    let winLines = 
+    [
+      ["0", "1", "2"],
+      ["3", "4", "5",],
+      ["6", "7", "8",],
+      ["1", "4", "7",],
+      ["2", "5", "8",],
+      ["0", "4", "8",],
+      ["2", "4", "6",],
+    ]
+
+    for (let index = 0; index < winLines.length; index++){
+      const [a,b,c] = winLines[index];
+      if (this.state.board[a] && this.state.board[a] === this.state.board[b] && this.state.board[a] === this.state.board[c]){
+        alert('YOU WON');
+      }
+    }
+  }
+
   handleClick(index){
     let newBoard = this.state.board
 
@@ -20,6 +40,8 @@ class App extends Component {
       board: newBoard,
       player: this.state.player === "X" ? "O" : "X"
     })
+
+      this.checkWinner()
     }
 
     
