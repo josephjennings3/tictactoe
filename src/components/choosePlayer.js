@@ -21,7 +21,6 @@ class Player extends Component {
 			</form>
 		)
 	}
-
 }
 
 export default Player;
